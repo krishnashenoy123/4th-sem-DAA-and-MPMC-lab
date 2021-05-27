@@ -1,6 +1,6 @@
 #include<iostream.h>
 #include<conio.h>
-#include<time.h>
+#include<timer.h>
 
 class quick
 {
@@ -51,7 +51,7 @@ void quick :: qsort(int a[], int low, int high)
 void main()
 {
     int *a, n, i;
-    clock_t start, stop;
+    Timer T;
     quick q;
     clrscr();
     cout << "Enter the number of elements: ";
@@ -60,13 +60,13 @@ void main()
     cout << "Enter the elements" << endl;
     for(i=0; i<n; i++)
         cin >> a[i];
-    start = clock();
+    T.start();
     q.qsort(a, 0, n-1);
-    stop = clock();
+    T.stop();
     cout << "Sorted elements are" << endl;
     for(i=0; i<n; i++)
         cout << a[i] << endl;
-    cout << "Time taken = " << (stop-start)/CLK_TCK << " Seconds" << endl;
+    cout << "Time taken = " << T.time() << " Seconds" << endl;
     cout << "Space consumed = " << sizeof(n)+n*sizeof(a)+sizeof(i)+sizeof(q) << " bytes" << endl;
     getch();
 }
