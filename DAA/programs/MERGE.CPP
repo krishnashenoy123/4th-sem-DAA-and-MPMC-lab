@@ -1,6 +1,6 @@
 #include<iostream.h>
 #include<conio.h>
-#include<time.h>
+#include<timer.h>
 #define MAX 100
 
 class merge
@@ -54,7 +54,7 @@ void merge :: s_merge(int a[], int low, int mid, int high)
 void main()
 {
     int *a, n, i;
-    clock_t start, stop;
+    Timer T;
     merge m;
     clrscr();
     cout << "Enter the number of elements: " << endl;
@@ -63,13 +63,13 @@ void main()
     cout << "Enter the elements: " << endl;
     for(i=0; i<n; i++)
         cin >> a[i];
-    start = clock();
+    T.start();
     m.m_sort(a, 0, n-1);
-    stop = clock();
+    T.stop();
     cout << "Sorted elements are" << endl;
     for(i=0; i<n; i++)
         cout << a[i] << endl;
-    cout << "Time taken = " << (stop-start)/CLK_TCK << " Seconds" << endl;
+    cout << "Time taken = " << T.time() << " Seconds" << endl;
     cout << "Space consumed = " << sizeof(n)+n*sizeof(a)+sizeof(i)+sizeof(m) << " bytes";
     getch();
 }
