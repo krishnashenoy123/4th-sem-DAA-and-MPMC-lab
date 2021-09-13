@@ -32,15 +32,15 @@ int tsp::least(int c)
     int i,nc=999,min=999;
     for(i=0;i<n;i++)
     {
-	if(a[c][i]!=0 && v[i]==0)
-	    if(a[c][i]<=min)
-	{
-	    min=a[c][i];
-	    nc=i;
-	}
+    	if(a[c][i]!=0 && v[i]==0)
+    	    if(a[c][i]<=min)
+        	{
+        	    min=a[c][i];
+        	    nc=i;
+        	}
     }
     if(min!=999)
-	cost+=min;
+	   cost+=min;
     return nc;
 }
 void tsp::mincost(int city)
@@ -51,10 +51,10 @@ void tsp::mincost(int city)
     ncity=least(city);
     if(ncity==999)
     {
-	ncity=source;
-	cout<<ncity;
-	cost+=a[city][ncity];
-	return;
+    	ncity=source;
+    	cout<<ncity;
+    	cost+=a[city][ncity];
+    	return;
     }
     mincost(ncity);
 }
